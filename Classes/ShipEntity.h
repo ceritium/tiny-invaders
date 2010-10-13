@@ -11,11 +11,9 @@
 
 #import "Entity.h"
 
-// Re-implementation of the Ship class using Components
-@interface ShipEntity : Entity
+@interface ShipEntity : ARCH_OPTIMAL_PARTICLE_SYSTEM 
 {
+	
 }
-
-+(id) ship;
 
 @end

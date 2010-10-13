@@ -1,32 +1,20 @@
 //
-//  ShipEntity.m
-//  ShootEmUp
+//  ParticleEffectSelfMade.m
+//  ParticleEffects
 //
-//  Created by Steffen Itterheim on 18.08.10.
+//  Created by Steffen Itterheim on 24.08.10.
 //  Copyright 2010 Steffen Itterheim. All rights reserved.
 //
 
-#import "ShipEntity.h"
-#import "CCAnimationHelper.h"
-#import "GameScene.h"
+#import "HeroEntity.h"
 
 
+@implementation HeroEntity
 
-
-@implementation ShipEntity
-
-//-(id) init
-//{
-//	return [self initWithTotalParticles:250];
-//	
-//}
-
-+(id) ship
+-(id) init
 {
-	return [[[self alloc] initWithTotalParticles:250] autorelease];
+	return [self initWithTotalParticles:250];
 }
-
-
 
 -(id) initWithTotalParticles:(int)numParticles
 {
@@ -52,17 +40,17 @@
 		{
 			// centerOfGravity is misleading as it determines the offset where particles appear. The actual
 			// center of gravity is the node's position.
-			self.centerOfGravity = CGPointMake(0, 0);
+			self.centerOfGravity = CGPointMake(-15, 0);
 			// gravity determines the particle's speed in the x and y directions
-			self.gravity = CGPointMake(-250, 0);
+			self.gravity = CGPointMake(-50, -90);
 			// radial acceleration affects how fast particles move depending on their distance to the emitter
 			// positive radialAccel means particles speed up as they move away, negative means they slow down
-			self.radialAccel = 0;
-			self.radialAccelVar = 0;
+			self.radialAccel = -90;
+			self.radialAccelVar = 20;
 			// tangential acceleration lets particles rotate around the emitter position, 
 			// and they speed up as they rotate around (slingshot effect)
-			self.tangentialAccel = 0;
-			self.tangentialAccelVar = 0;
+			self.tangentialAccel = 120;
+			self.tangentialAccelVar = 10;
 			// speed is of course how fast particles move in general
 			self.speed = 15;
 			self.speedVar = 4;
@@ -94,7 +82,7 @@
 		
 		// PARTICLE SIZE
 		// size of individual particles in pixels
-		self.startSize = 30.0f;
+		self.startSize = 40.0f;
 		self.startSizeVar = 0.0f;
 		self.endSize = kCCParticleStartSizeEqualToEndSize;
 		self.endSizeVar = 0;
@@ -106,16 +94,16 @@
 		
 		// PARTICLE LIFETIME
 		// how long each individual particle will "life" (eg. stay on screen)
-		self.life = 0.3f;
-		self.lifeVar = 1.0f;
+		self.life = 5.0f;
+		self.lifeVar = 0.0f;
 		
 		// PARTICLE EMISSION RATE
 		// how many particles per second are created (emitted)
 		// particle creation stops if self.particleCount >= self.totalParticles
 		// you can use this to create short burst effects with pauses between each burst
-		self.emissionRate = 200;
+		self.emissionRate = 30;
 		// normally set with initWithTotalParticles but you can change that number
-		self.totalParticles = 150;
+		self.totalParticles = 250;
 		
 		// PARTICLE COLOR
 		// A valid startColor must be set! Otherwise the particles may be invisible. The other colors are optional.
@@ -125,12 +113,12 @@
 		startColor.b = 0.12f;
 		startColor.a = 1.0f;
 		
-//		startColorVar.r = 0.0f;
-//		startColorVar.g = 0.0f;
-//		startColorVar.b = 0.0f;
-//		startColorVar.a = 0.0f;
+		startColorVar.r = 0.0f;
+		startColorVar.g = 0.0f;
+		startColorVar.b = 0.0f;
+		startColorVar.a = 0.0f;
 		
-		endColor.r = 0.5f;
+		endColor.r = 0.0f;
 		endColor.g = 0.0f;
 		endColor.b = 0.0f;
 		endColor.a = 1.0f;
@@ -152,92 +140,9 @@
 		
 		// PARTICLE TEXTURE
 		self.texture = [[CCTextureCache sharedTextureCache] addImage: @"fire.png"];
-
 	}
 	
 	return self;
 }
 
-
--(void) setPosition:(CGPoint)pos {
-	// If the current position is (still) outside the screen no adjustments should be made!
-	// This allows entities to move into the screen from outside.
-	if (CGRectContainsRect([GameScene screenRect], [self boundingBox]))
-	{
-		CGSize screenSize = [[CCDirector sharedDirector] winSize];
-		float halfWidth = self.contentSize.width * 0.5f;
-		float halfHeight = self.contentSize.height * 0.5f;
-		
-		// Cap the position so the Ship's sprite stays on the screen
-		if (pos.x < halfWidth)
-		{
-			pos.x = halfWidth;
-		}
-		else if (pos.x > (screenSize.width - halfWidth))
-		{
-			pos.x = screenSize.width - halfWidth;
-		}
-		
-		if (pos.y < halfHeight)
-		{
-			pos.y = halfHeight;
-		}
-		else if (pos.y > (screenSize.height - halfHeight))
-		{
-			pos.y = screenSize.height - halfHeight;
-		}
-	}
-	
-	[super setPosition:pos];
-}
-
-
-
 @end
-
-
-
-
-
-
-
-
-
-
-//
-//@interface ShipEntity (PrivateMethods)
-//-(id) initWithShipImage;
-//@end
-//
-//@implementation ShipEntity
-//
-//+(id) ship
-//{
-//	return [[[self alloc] initWithShipImage] autorelease];
-//}
-//
-//-(id) initWithShipImage
-//{
-//	// Loading the Ship's sprite using a sprite frame name (eg the filename)
-//	if ((self = [super initWithSpriteFrameName:@"ship.png"]))
-//	{
-//		// create an animation object from all the sprite animation frames
-//		CCAnimation* anim = [CCAnimation animationWithFrame:@"ship-anim" frameCount:5 delay:0.08f];
-//		
-//		// add the animation to the sprite (optional)
-//		//[sprite addAnimation:anim];
-//		
-//		// run the animation by using the CCAnimate action
-//		CCAnimate* animate = [CCAnimate actionWithAnimation:anim];
-//		CCRepeatForever* repeat = [CCRepeatForever actionWithAction:animate];
-//		[self runAction:repeat];
-//	}
-//	return self;
-//}
-//
-//// moved back to ShipEntity ... the enemies currently don't need it and it gets in the way when
-//// resetting enemy positions during spawn
-//
-//// override setPosition to keep entitiy within screen bounds
-
-//@end

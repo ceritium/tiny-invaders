@@ -64,6 +64,7 @@
 		50F414F01069373D002A0D5E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414EC1069373D002A0D5E /* Default.png */; };
 		50F414F11069373D002A0D5E /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414ED1069373D002A0D5E /* fps_images.png */; };
 		50F414F21069373D002A0D5E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414EE1069373D002A0D5E /* Icon.png */; };
+		8626E12B126634F30085A10E /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 8626E12A126634F30085A10E /* fire.png */; };
 		DC08B346120B50A000BC5F83 /* game-art.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC08B343120B50A000BC5F83 /* game-art.plist */; };
 		DC08B347120B50A000BC5F83 /* game-art.png in Resources */ = {isa = PBXBuildFile; fileRef = DC08B344120B50A000BC5F83 /* game-art.png */; };
 		DC10A7D5120997A400EB596C /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DC10A7D4120997A400EB596C /* GameScene.m */; };
@@ -318,6 +319,7 @@
 		50F414ED1069373D002A0D5E /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fps_images.png; sourceTree = "<group>"; };
 		50F414EE1069373D002A0D5E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		50F414EF1069373D002A0D5E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8626E12A126634F30085A10E /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
 		DC08B343120B50A000BC5F83 /* game-art.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "game-art.plist"; sourceTree = "<group>"; };
 		DC08B344120B50A000BC5F83 /* game-art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game-art.png"; sourceTree = "<group>"; };
 		DC10A7D3120997A400EB596C /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
@@ -726,6 +728,7 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8626E12A126634F30085A10E /* fire.png */,
 				DC1C42B11225845F00AA3640 /* fx-explosion.plist */,
 				DC1C42B21225845F00AA3640 /* fx-explosion2.plist */,
 				DC08B343120B50A000BC5F83 /* game-art.plist */,
@@ -1173,6 +1176,7 @@
 				DC08B347120B50A000BC5F83 /* game-art.png in Resources */,
 				DC1C42B31225845F00AA3640 /* fx-explosion.plist in Resources */,
 				DC1C42B41225845F00AA3640 /* fx-explosion2.plist in Resources */,
+				8626E12B126634F30085A10E /* fire.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1429,7 +1433,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Release;
 		};
