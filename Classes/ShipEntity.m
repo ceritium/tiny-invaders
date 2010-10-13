@@ -125,10 +125,10 @@
 		startColor.b = 0.12f;
 		startColor.a = 1.0f;
 		
-//		startColorVar.r = 0.0f;
-//		startColorVar.g = 0.0f;
-//		startColorVar.b = 0.0f;
-//		startColorVar.a = 0.0f;
+		startColorVar.r = 0.0f;
+		startColorVar.g = 0.0f;
+		startColorVar.b = 0.0f;
+		startColorVar.a = 0.0f;
 		
 		endColor.r = 0.5f;
 		endColor.g = 0.0f;

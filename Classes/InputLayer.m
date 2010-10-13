@@ -101,7 +101,7 @@
 	GameScene* game = [GameScene sharedGameScene];
 	ShipEntity* ship = [game defaultShip];
 	
-	CGPoint velocity = ccpMult(joystick.velocity, 200);
+	CGPoint velocity = ccpMult(joystick.velocity, 150);
 	if (velocity.x != 0 && velocity.y != 0)
 	{
 		ship.position = CGPointMake(ship.position.x + velocity.x * delta, ship.position.y + velocity.y * delta);

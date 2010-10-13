@@ -51,8 +51,8 @@ static GameScene* instanceOfGameScene;
 		CCSpriteFrameCache* frameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
 		[frameCache addSpriteFramesWithFile:@"game-art.plist"];
 		
-		ParallaxBackground* background = [ParallaxBackground node];
-		[self addChild:background z:-1];
+//		ParallaxBackground* background = [ParallaxBackground node];
+//		[self addChild:background z:-1];
 		
 		ShipEntity* ship = [ShipEntity ship];
 		ship.position = CGPointMake([ship contentSize].width / 2, screenSize.height / 2);

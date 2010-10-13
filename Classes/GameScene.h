@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 
 #import "BulletCache.h"
-#import "ParallaxBackground.h"
+//#import "ParallaxBackground.h"
 #import "ShipEntity.h"
 
 typedef enum
